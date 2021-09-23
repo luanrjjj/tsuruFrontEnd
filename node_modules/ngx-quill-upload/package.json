@@ -1,0 +1,36 @@
+{
+  "name": "ngx-quill-upload",
+  "version": "2.0.0",
+  "description": "A module for images and videos to be uploaded to a server instead of being base64 encoded, in ngx-quill from toolbar editor.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayush013/ngx-quill-upload.git"
+  },
+  "keywords": [
+    "quill",
+    "ngx-quill",
+    "imageHandler",
+    "videoHandler"
+  ],
+  "author": "Ayush Singh <ayush.singh.xda@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayush013/ngx-quill-upload/issues"
+  },
+  "homepage": "https://github.com/ayush013/ngx-quill-upload#readme",
+  "peerDependencies": {},
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "main": "bundles/ngx-quill-upload.umd.js",
+  "module": "fesm2015/ngx-quill-upload.js",
+  "es2015": "fesm2015/ngx-quill-upload.js",
+  "esm2015": "esm2015/ngx-quill-upload.js",
+  "fesm2015": "fesm2015/ngx-quill-upload.js",
+  "typings": "ngx-quill-upload.d.ts",
+  "metadata": "ngx-quill-upload.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
