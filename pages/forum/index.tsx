@@ -1,8 +1,9 @@
 import React, {useEffect,useState} from "react";
+
 import {BsFillChatFill} from 'react-icons/bs';
 import {AiFillEye,AiOutlineSearch} from 'react-icons/ai';
 
-
+import Link from 'next/link';
 
 import {
   Container,
@@ -29,6 +30,7 @@ import userImg from '../../assets/images/user.png';
 
 
 import api from '../../services/api';
+import { GetStaticProps } from "next";
 
 
 
@@ -60,7 +62,7 @@ interface Threads {
 interface Posts {
   posts:Post[]
 }
-const Forum:React.FC = () => {
+export default function Forum({}) {
  const [threads,setThreads] = useState<Thread[]>([])
 
   
@@ -125,17 +127,19 @@ const Forum:React.FC = () => {
             <Threads>
            
                   <ol>
-                    {threads?.map(({ id, title,body,created_at,creator,category,solved }:Thread) => (
+                    {threads?.map(thread => (
+                      <Link  key={thread.id} href={ `/thread/${thread.id}`}>
                        <Thread>
+                         
                          <div className="userImg">
                            <div>
                           <img src={userImg.src}></img>
                           </div>
                           </div>
-                          <li key={id}>
+                          <li key={thread.id}>
                          
                             <TitleThread>
-                              <h1>{title}</h1>
+                              <h1>{thread.title}</h1>
                               <div>
                               
                               <div className="RepliesCount">
@@ -148,13 +152,15 @@ const Forum:React.FC = () => {
                               </div>
                               </TitleThread>
                             <ThreadDetails>                                       
-                              <p>{creator.name}</p>
-                              {solved==1 ? <a className="Solved">solved</a>:''}
-                              <a className="Category">{category}</a>
+                              <p>{thread.creator.name}</p>
+                              {thread.solved==1 ? <a className="Solved">solved</a>:''}
+                              <a className="Category">{thread.category}</a>
                             </ThreadDetails>   
                             <p></p>
                           </li>
+                          
                           </Thread>
+                          </Link>
                         ))}
                     </ol>
                    
@@ -170,4 +176,3 @@ const Forum:React.FC = () => {
           </>
   );
 }
-export default Forum
